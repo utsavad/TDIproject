@@ -4,3 +4,7 @@ flask
 pandas
 python-dateutil
 bokeh
+dill
+jinja2
+pip
+simplejson
