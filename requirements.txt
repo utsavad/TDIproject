@@ -2,5 +2,5 @@ gunicorn==19.9.0
 requests==2.19.1
 flask
 pandas
-dateutil
+python-dateutil
 bokeh
