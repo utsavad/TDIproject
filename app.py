@@ -77,7 +77,7 @@ def create_graph(ticker,start_date,select_col):
 	return p
 
 if __name__ == '__main__':
-	app.run(debug=True)
+	app.run(port=33507)
 
 #
 #export FLASK_APP=FlaskBlog.py
