@@ -5,8 +5,11 @@ import pandas as pd
 from datetime import datetime
 from dateutil.relativedelta import * 
 
-from bokeh.layouts import gridplot
+from bokeh.embed import components
 from bokeh.plotting import figure, show, output_file
+from bokeh.resources import INLINE
+from bokeh.util.string import encode_utf8
+
 
 app= Flask(__name__)
 
@@ -15,19 +18,32 @@ app= Flask(__name__)
 def hello():
 	return render_template('home.html')
 
-@app.route("/graph", methods=['GET','POST'])
-def graph():
+@app.route("/bokeh", methods=['GET','POST'])
+def bokeh():
 	if request.method == 'POST':
 		ticker = request.form.get('ticker')
 		start_date = request.form.get('start_date')
 		select_col = request.form.getlist('features')
 		if start_date=='':start_date='2018-08-01'
 		if ticker=='':ticker='AAPL'
-		my_graph(ticker,start_date,select_col)
-	return render_template('home.html')
+		my_plot = create_graph(ticker,start_date,select_col)
 
+		# grab the static resources
+		js_resources = INLINE.render_js()
+		css_resources = INLINE.render_css()
 
-def my_graph(ticker,start_date,select_col):
+		# render template
+		script, div = components(my_plot)
+		html = render_template('index.html',
+			plot_script=script,
+			plot_div=div,
+			js_resources=js_resources,
+			css_resources=css_resources,)
+		return encode_utf8(html)
+
+	
+
+def create_graph(ticker,start_date,select_col):
 	base_url = "https://www.quandl.com/api/v3/datasets/EOD/"
 	#ticker='AAPL'
 	#start_date='2018-08-01'
@@ -58,7 +74,10 @@ def my_graph(ticker,start_date,select_col):
 	#p.line(df.Date,mean_price, color='black', legend="Avg Closing Price")
 	p.legend.location = "top_right"
 
-	show(p)
+	return p
+
+if __name__ == '__main__':
+	app.run(debug=True)
 
 #
 #export FLASK_APP=FlaskBlog.py
