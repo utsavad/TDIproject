@@ -13,7 +13,7 @@ app= Flask(__name__)
 @app.route("/")
 @app.route("/home")
 def hello():
-	return render_template('home.html',posts=posts)
+	return render_template('home.html')
 
 @app.route("/graph", methods=['GET','POST'])
 def graph():
