@@ -1,3 +1,5 @@
+import os
+
 from flask import Flask,render_template,url_for, request
 import requests
 
@@ -48,7 +50,7 @@ def create_graph(ticker,start_date,select_col):
 	#ticker='AAPL'
 	#start_date='2018-08-01'
 	end_date = datetime.strptime(start_date,'%Y-%m-%d')+relativedelta(months=+1)
-	my_api="test"
+	my_api=os.environ.get("QuandlApi")
 	url = f"{base_url}{ticker}.json?start_date={start_date}&end_date={end_date}&api_key={my_api}"
 
 	raw_data = requests.get(url).json()
