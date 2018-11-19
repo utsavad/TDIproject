@@ -1,20 +1,168 @@
 {% extends "layout.html" %}
 {% block content %}
-	 <div class="container">
+ <div class="container">
       <div class="row">
         <div class="col-lg-12 text-left">
-          <form id='input' method='post' action='/bokeh'>	
-          <p>Ticker symbol: <input type='text' name='ticker' placeholder='AAPL' /></p>
-          <p>Start Date: <input type='text' name='start_date' placeholder='2018-08-01' /></p>
-          <p>
-          <input type="checkbox" name='features' value='Close' checked="checked" />Closing price<br>
-          <input type="checkbox" name='features' value='Adj_Close' />Adjusted closing price<br>
-          <input type="checkbox" name='features' value='Open' />Opening price<br>
-          <input type="checkbox" name='features' value='Adj_Open' />Adjusted opening price<br>
+          <form id='input' method='post' action='/bokeh'>
+          <p><b> Fill out the borm below to assess the risk of the customer. Hover on the question mark for help text (Note: It might take a second for help text to load). </b> </p> 
+          <p>Name <a href="" title="Enter person firstname and lastname">?</a> 
+            &emsp; &emsp; &emsp; &emsp; &emsp; &nbsp; <input type='text' size="50" name='name' placeholder='Firstname Lastname' required/>
           </p>
-          <p><input type="submit" value="Submit"></p>
+          
+
+          <p>Employment Title <a href="" title="Enter the profession for the person">?</a>
+          &emsp; &nbsp; <input type='text' size="50" name='emp_title' placeholder='Service' required/>
+          </p>
+          
+          <p>Purpose <a href="" title="Why does the person need the loan for.">?</a>
+            &emsp; &emsp; &emsp; &emsp;&ensp; <input type='text' size="50" name='purpose' placeholder='Vacation' required/>
+            
+          </p>
+          
+          <p>State <a href="" title="Enter 2 letter abbreviation for the residency state of the address">?</a>
+            &emsp; &emsp; &emsp; &emsp; &emsp; &ensp; <input type='text' size="50" minlength="2" maxlength="2" name='addr_state' placeholder='NY (DC for Washington DC)' required/>
+          </p>
+          
+          <p>Employment Length <a href="" title="Number of years at current job">?</a>
+            &nbsp; <input type='number' size="50" name='emp_length' placeholder='1.5 (Num. of years')  step=".01" required/>
+            
+          </p>
+          
+          <p>Loan Amount <a href="" title="Total amount of loan requested">?</a>
+            &ensp; &emsp; &emsp; <input type='number' size="50" name='loan_amnt' placeholder='10000' required/>
+            
+          </p>
+          
+          <p>Annual Income <a href="" title="Last years annual income">?</a>
+            &emsp; &emsp; <input type='number' size="50" name='annual_inc' placeholder='60000' step="any" required/>
+            
+          </p>
+          
+          <p>Term  <a href="" title="Length of time loan needs to be repaid">?</a>
+            &emsp;  &emsp; &emsp; &emsp; &emsp; &nbsp;  <input type='number' size="50" name='term' placeholder='36 (In Months)' required/>
+           
+          </p>
+          
+          <p>Interest Rate  <a href="" title="Interest rate on the loan">?</a>
+            &emsp; &emsp; &emsp;  <input type='number' size="50" name='int_rate' placeholder='10 (Enter percentage)' step="any" required/>
+           
+          </p>
+
+          <p>Open Accounts <a href="" title="Total number of accounts (banks accounts, loan accounts)">?</a>
+            &emsp; &ensp;  <input type='number' size="50" name='open_acc' placeholder='10 (Enter a number)' required/>
+            
+          </p>
+
+          <p>Delinquency  <a href="" title="The number of 30+ days past-due incidences of delinquency in the borrower's credit file for the past 2 years">?</a>
+            &emsp; &emsp; &emsp;  <input type='number' size="50" name='delinq_2yrs' placeholder='10 (Enter a number)' required/>
+           
+            </p>
+
+          <p>Inquiry 6 months <a href="" title="The number of inquiries in past 6 months (excluding auto and mortgage inquiries)">?</a> &emsp;
+            <label for="inq_last_6mths">YES</label>
+            <input type="radio" name="inq_last_6mths" id="1" value="1.0" required> &emsp;
+
+            <label for="inq_last_6mths">NO</label>
+            <input type="radio" name="inq_last_6mths" id="0.0" value="0.0"> &emsp;
+          </p>
+          
+          <p>Public Record <a href="" title="Number of derogatory public records if exists">?</a>  &emsp; &emsp;  
+            <label for="pub_rec">YES</label>
+            <input type="radio" name="pub_rec" id="1.0" value="1.0" required> &emsp;
+
+            <label for="pub_rec">NO</label>
+            <input type="radio" name="pub_rec" id="0.0" value="0.0"> &emsp;
+          </p>
+
+          <p>Grade <a href="" title="Potential category of the loan of the loan. A is the best.">?</a>&emsp; &emsp; &emsp; &emsp; &emsp; 
+            <label for="grade">A</label>
+            <input type="radio" name="grade" id="A" value="A" required> &emsp;
+
+            <label for="grade">B</label>
+            <input type="radio" name="grade" id="B" value="B"> &emsp;
+
+            <label for="grade">C</label>
+            <input type="radio" name="grade" id="C" value="C"> &emsp;
+
+            <label for="grade">D</label>
+            <input type="radio" name="grade" id="D" value="D"> &emsp;
+
+            <label for="grade">E</label>
+            <input type="radio" name="grade" id="E" value="E"> &emsp;
+
+            <label for="grade">F</label>
+            <input type="radio" name="grade" id="F" value="F"> &emsp;
+
+            <label for="grade">G</label>
+            <input type="radio" name="grade" id="G" value="G"> &emsp;
+
+
+          </p>
+          <p>Subgrade <a href="" title="Potential sub-category of the loan of the loan. 1 is the best.">?</a> &emsp; &emsp; &emsp; &ensp;
+            <label for="sub_grade">1</label>
+            <input type="radio" name="sub_grade" id="1" value="1" required> &emsp;
+
+            <label for="sub_grade">2</label>
+            <input type="radio" name="sub_grade" id="2" value="2"> &emsp;
+
+            <label for="sub_grade">3</label>
+            <input type="radio" name="sub_grade" id="3" value="3"> &emsp;
+
+            <label for="sub_grade">4</label>
+            <input type="radio" name="sub_grade" id="4" value="4"> &emsp;
+
+            <label for="sub_grade">5</label>
+            <input type="radio" name="sub_grade" id="5" value="5"> &emsp;
+
+
+          </p>
+          <p>Verification Status <a href="" title=" Indicate if income or the income source was verified.">?</a> &nbsp;&nbsp; 
+            <label for="verification_status">YES</label>
+            <input type="radio" name="verification_status" id="1.0" value="1.0" required> &emsp;
+
+            <label for="verification_status">NO</label>
+            <input type="radio" name="verification_status" id="0.0" value="0.0"> &emsp;
+          </p>
+
+          <p>Payment Plan  <a href="" title=" Indicate if the borrower wants to be on the payment plan">?</a>   &emsp; &emsp; &nbsp;  
+            <label for="pymnt_plan">YES</label>
+            <input type="radio" name="pymnt_plan" id="1.0" value="1.0" required> &emsp;
+
+            <label for="pymnt_plan">NO</label>
+            <input type="radio" name="pymnt_plan" id="0.0" value="0.0"> &emsp;
+          </p>
+
+          <p>Homeowner  <a href="" title="Home ownership status">?</a>  &emsp; &emsp; &emsp; 
+
+            <label for="home_ownership">RENT</label>
+            <input type="radio" name="home_ownership" id="RENT" value="RENT" required> &nbsp; 
+
+            <label for="home_ownership">MORTGAGE</label>
+            <input type="radio" name="home_ownership" id="MORTGAGE" value="MORTGAGE"> &nbsp; 
+
+            <label for="home_ownership">OWN</label>
+            <input type="radio" name="home_ownership" id="OWN" value="OWN"> &nbsp; 
+            
+            <label for="home_ownership">OTHER</label>
+            <input type="radio" name="home_ownership" id="OTHER" value="OTHER"> &nbsp; 
+
+            <label for="home_ownership">NONE</label>
+            <input type="radio" name="home_ownership" id="NONE" value="NONE"> 
+                    
+
+          </p>
+          <p>
+            <textarea rows="0" cols="50" placeholder=" Text">
+            </textarea>
+          </p>
+
+            <p><input type="submit" name='action' value="Submit">&emsp; &emsp;
+            </p>
+          </p>
           </form>
         </div>
       </div>
     </div>
+
 {% endblock content %}
+

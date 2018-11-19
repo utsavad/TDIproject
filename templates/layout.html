@@ -11,9 +11,9 @@
 	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='main.css') }}">
 
 	{% if title %}
-		<title> Flask BLog - {{ title }} </title>
+		<title> Loan Application Analysis - {{ title }} </title>
 	{% else %}
-		<title> FLask Blog </title>
+		<title> Loan Application Analysis </title>
 	{% endif %}
 </head>
 <body>
@@ -27,6 +27,7 @@
 	      <div class="collapse navbar-collapse" id="navbarToggle">
 	        <div class="navbar-nav mr-auto">
 	          <a class="nav-item nav-link" href="/">Home</a>
+	          <a class="nav-item nav-link" href="/about">About</a>
 	          <a class="nav-item nav-link" href="https://github.com/utsavad/FlaskDemoClone">Git</a>
 	          <a class="nav-item nav-link" href="https://www.thedataincubator.com/12day.html">12 Day</a>
 	        </div>
@@ -36,7 +37,7 @@
 	</header>
 	<main role="main" class="container">
 	  <div class="row">
-	    <div class="col-md-8">
+	    <div class="col-md-12">
 	      {% block content %}{% endblock %}
 	    </div>
 	  </div>

@@ -7,8 +7,31 @@
     {{ js_resources|indent(4)|safe }}
     {{ css_resources|indent(4)|safe }}
     {{ plot_script|indent(4)|safe }}
+    <style>
+
+
+        body {
+            margin: 0;
+            padding: 0;
+            text-align: center;  !!! 
+        }
+
+        .centered {
+            margin: 0 auto;
+            display:block;
+            text-align: left;
+            width: 800px;
+        }
+
+
+</style>
+
+
   </head>
   <body>
+    <div class="centered" style="width : 700px; height : 150px;">
     {{ plot_div|indent(4)|safe }}
+  </div>
   </body>
 </html>
+
