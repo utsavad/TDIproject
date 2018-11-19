@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1> <center>Bad Credit Score Doesn't Make a Bad Borrower</center> </h1>
+<h2> <u> Goal </u> </h2> 
+<p>
+  The web application allows a lender to do a comprehensive analysis of a loan application. The app doesn't classify whether a borrower is safe or not. It is intended to present a more detailed analysis of a loan applicant without looking at the credit score.
+</p>
+
+<h2> <u> Data and Model </u> </h2> 
+<p>
+  Loan assessment is done based on an underlying machine learning model. Actual model linked in the github page uses a random forest model to predict the probability to default and create visualizations. Due to memory limitation, current app uses a simple logistic regression model to predict the score. </p>
+<p>
+  The data that is trained using the data provided by <a href="https://www.lendingclub.com/">Lending club</a>. The dataset has about 150 attributes for each loan. The trained model uses data from 2007-2017. 
+</p>
+
+
+<h2> <u> How it works? </u> </h2> 
+<p>
+  Go to home page and fill out the information on the form. Most of the fields can be found in application form. There are few fields which are properties of a loan that is provided to the customer (such as interest rate, grade and subgrade). On hitting a submit button, a new window will appear with a score for probability to default. There are other three tabs, all of which presents a visualization that will give more insights regarding the customer. 
+</p>
+
+
+<h2> <u> Coming Soon </u> </h2> 
+<p>
+  1. Sentiment analysis of description text.
+  2. Prediction by changing the properties of the loan (Interest Rate, Grade and Sub-Grade)
+</p>
+
+
+{% endblock content %}
+
