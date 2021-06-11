@@ -3,7 +3,7 @@ requests==2.19.1
 flask
 pandas
 python-dateutil
-bokeh
+bokeh==1.4.0
 dill
 jinja2
 pip
