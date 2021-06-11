@@ -8,4 +8,6 @@ dill
 jinja2
 pip
 simplejson
-scikit-learn==0.18
+scipy
+numpy
+scikit-learn==0.20.1
