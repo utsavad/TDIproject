@@ -8,4 +8,4 @@ dill
 jinja2
 pip
 simplejson
-sklearn
+sklearn==0.20.1
